@@ -25,7 +25,7 @@ public class signUpController {
 	public String signUp() throws Exception {
 			
 		System.out.println("signup controller:");
-		return "/signUp/signUp";
+		return "signUp/signUp";
 	}	
 	
 	@ResponseBody
@@ -50,7 +50,7 @@ public class signUpController {
 	        		e.printStackTrace();
 	                logger.info("*****존재 하는 아이디");
 	        }
-	        return "/login/login";
+	        return "login/login";
 	  }
 }
 

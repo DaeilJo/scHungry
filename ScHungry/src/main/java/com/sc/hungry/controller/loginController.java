@@ -30,7 +30,7 @@ public class loginController {
 	@GetMapping("/login")
 	public String login() {
 		System.out.println("login controller:");
-        return "/login/login";
+        return "login/login";
     }
 	
 	@ResponseBody
@@ -44,6 +44,6 @@ public class loginController {
 	@GetMapping("/main")
 	public String main() {
 		System.out.println("main controller:");
-        return "/main/main";
+        return "main/main";
     }
 }
