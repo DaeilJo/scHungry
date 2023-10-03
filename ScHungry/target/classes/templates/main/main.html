@@ -9,13 +9,15 @@
     <link rel="stylesheet" href="./login.css">
 </head>
  <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script type="text/javascript" src="js/cordova.js"></script>
+    <script type="text/javascript" src="js/host.js"></script>
 <body>
     <div class="wrap">
         <div class="login">
             <h2>Main</h2>
             <div class="login_sns">
 			<li><a id="tts" href="#value" onclick='tts()'> TT </a></li>
-            <li><a id="stt" href="javascript:void(0);" onclick='stt()'> E</i></a></li>
+            <li><a id="stt" href="#value" onclick='stt()'> E</i></a></li>
             <li><a href="javascript:void(0);" onclick='map()'> S</i></a></li>
             <li><a href="javascript:void(0);" onclick='juso()'> T</a></li>
             </div>
@@ -25,23 +27,30 @@
 </body>
 </html>
 <script>
+	  //let contentController = WKUserContentController()
+      //let config = WKWebViewConfiguration()
+        
 	function tts(){
+		window.webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({
+            "action" : "tts_call",
+            "txt_data" :  $("#tts").val()
+        }));
+       
+        //localStorage.setItem('tts','Y');
+        
+	}
+	function stt(){
 		//window.webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({
-         //   "action" : "tts_call",
-          //  "txt_data" :  $("#tts").val()
-       // }));
+         //   "action" : "stt_call",
+         //   "txt_data" :  $("#stt").val()
+        //}));
        
         localStorage.setItem('tts','Y');
         
 	}
-	function stt(){
-		window.webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({
-            "action" : "stt_call",
-            "txt_data" :  $("#stt").val()
-        }));
-       
-        localStorage.setItem('tts','Y');
-        
+	
+	function map(){
+		location.href = "/map";
 	}
 	
 	function signUp(){
