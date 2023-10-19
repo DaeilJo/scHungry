@@ -19,8 +19,6 @@ import com.sc.hungry.dto.signUpDto;
 import com.sc.hungry.service.loginService;
 import com.sc.hungry.service.signUpService;
 
-import jakarta.servlet.http.HttpSession;
-
 @Controller
 public class loginController {
 	@Autowired
@@ -35,8 +33,8 @@ public class loginController {
 	
 	@ResponseBody
 	@RequestMapping(value="/emailLogin", method=RequestMethod.POST)
-	public List<HashMap<String, Object>> emailLogin(@RequestBody String emailId, HttpSession session) throws Exception {
-		List<HashMap<String, Object>> list = loginService.login(emailId);
+	public List<HashMap<String, Object>> emailLogin(@RequestBody String emailId) throws Exception {
+		List<HashMap<String, Object>> list = loginService.login(emailId);	
 		
 		return list;
 	}
