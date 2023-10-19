@@ -16,7 +16,7 @@
 <body>
     <div class="wrap">
    		 <header>
-   		  <div class="container"><p><a href="javascript:void(0);" onclick='insertJuso()' > 현재 위치를 설정해주세요 ⬇</a></p></div>
+   		  <div class="container"><p><a id="address" href="javascript:void(0);" onclick='insertJuso()' > 현재 위치를 설정해주세요 ⬇</a></p></div>
    		 	
   		  </header>
         <div class="login">
@@ -35,7 +35,16 @@
 <script>
 	  //let contentController = WKUserContentController()
       //let config = WKWebViewConfiguration() 
-        
+    var postcode =   localStorage.getItem('postcode');
+    var address =   localStorage.getItem('address');
+    var detailAddress =   localStorage.getItem('detailAddress');	
+    
+    if(address != ""){
+		$("#address").html(address);
+	}else{
+		$("#address").html("현재 위치를 설정해주세요 ⬇");
+	}
+    
 	function tts(){
 		window.webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({
             "action" : "tts_call",

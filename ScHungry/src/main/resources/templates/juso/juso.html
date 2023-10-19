@@ -117,13 +117,16 @@
     function confirmJuso(){
     	var juso1 =  $('#sample2_postcode').val();
     	var juso2 = $('#sample2_address').val();
+    	var juso3 = $('#sample2_detailAddress').val();
     	if(juso1 == '' || juso2 == ''){
     		alert("위치를 설정해주세요.");
     		return false;
     	}else{
     		location.href = "/main";
     	}
-    	
+    	localStorage.setItem('postcode',juso1);
+    	localStorage.setItem('address',juso2);
+    	localStorage.setItem('detailAddress',juso3);
     }
 </script>
 
