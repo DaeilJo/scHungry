@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +12,15 @@
  <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
      <script type="text/javascript" src="js/cordova.js"></script>
     <script type="text/javascript" src="js/host.js"></script>
+    
 <body>
     <div class="wrap">
+   		 <header>
+   		  <div class="container"><p><a href="javascript:void(0);" onclick='insertJuso()' > 현재 위치를 설정해주세요 ⬇</a></p></div>
+   		 	
+  		  </header>
         <div class="login">
-            <h2>Main</h2>
+            <h2>MENU</h2>
             <div class="login_sns">
 			<li><a id="tts" href="#value" onclick='tts()'> TT </a></li>
             <li><a id="stt" href="#value" onclick='stt()'> E</i></a></li>
@@ -25,10 +31,10 @@
         </div>
     </div>
 </body>
-</html>
+
 <script>
 	  //let contentController = WKUserContentController()
-      //let config = WKWebViewConfiguration()
+      //let config = WKWebViewConfiguration() 
         
 	function tts(){
 		window.webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({
@@ -49,6 +55,10 @@
         
 	}
 	
+	function insertJuso(){
+		location.href = "/juso";
+	}
+	
 	function map(){
 		location.href = "/map";
 	}
@@ -57,6 +67,9 @@
 		 location.href = "/signUp";
 	}
 	
+	function juso(){
+		location.href = "/juso";
+	}
 	
 	function submit(){
 		var emailId  = $('#emailId').val();
@@ -114,6 +127,31 @@
 	
 </script>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap');
+.container {
+  font-family: arial;
+  font-size: 17px;
+  margin: 25px;
+  width: 350px;
+  height: 200px;
+  font-family: 'Nanum Brush Script', cursive;
+}
+
+
+p {
+  /* 수평 중앙 정렬하기 */
+  text-align: center;
+}
+header{
+    position: fixed;
+    left: 0;
+    right: auto;
+    top: 0;
+    height: 4rem;
+    background: white;
+    line-height: 4rem;
+    text-align: center;
+}
 * {
   margin: 0;
   padding: 0;
@@ -244,4 +282,4 @@ h2 {
 }
 	
 </style>
-
+</html>
