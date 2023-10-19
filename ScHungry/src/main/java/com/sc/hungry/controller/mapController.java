@@ -12,3 +12,4 @@ public class mapController {
 		return "map/map";
 	}	
 }
+ 
