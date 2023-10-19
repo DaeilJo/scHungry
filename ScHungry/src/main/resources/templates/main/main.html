@@ -21,9 +21,9 @@
   		  </header>
         <div class="login">
             <h2>MENU</h2>
-            <div class="login_sns">
+            <div class="login_sns">	
 			<li><a id="tts" href="#value" onclick='tts()'> TT </a></li>
-            <li><a id="stt" href="#value" onclick='stt()'> E</i></a></li>
+            <li><a id="stt" href="assets/ch.png" onclick='stt()'></i></a></li>
             <li><a href="javascript:void(0);" onclick='map()'> S</i></a></li>
             <li><a href="javascript:void(0);" onclick='juso()'> T</a></li>
             </div>
@@ -38,12 +38,54 @@
     var postcode =   localStorage.getItem('postcode');
     var address =   localStorage.getItem('address');
     var detailAddress =   localStorage.getItem('detailAddress');	
+    var macAddress = "";
+    var userMacInfo = "";
+    init();
     
-    if(address != ""){
-		$("#address").html(address);
-	}else{
-		$("#address").html("현재 위치를 설정해주세요 ⬇");
-	}
+    function init(){
+    	$.ajax({
+            async : true, 
+            type : "POST", 
+            url: "/getMac",
+            dataType: "json",
+            contentType: "application/json; charset=UTF-8",
+            success: function(data) {    
+            	macAddress = data;     
+            	localStorage.setItem('macAddress', macAddress);
+            },
+            error: function(error) {
+                
+            }        
+         });
+    	
+    	 if(macAddress != null){
+    		 $.ajax({
+    	            async : true, 
+    	            type : "POST", 
+    	            data : macAddress,
+    	            url: "/getMacUserInfo",
+    	            dataType: "json",
+    	            contentType: "application/json; charset=UTF-8",
+    	            success: function(data) {    
+    	            	userMacInfo = data;      
+    	            },
+    	            error: function(error) {
+    	                
+    	            }        
+    	         }); 
+    	 }
+    	 
+    	 if(userMacInfo != ""){
+    		 
+    		 
+    	 }else{
+    		 if(address != ""){
+     			$("#address").text(address+"⬇");
+     	 	}else{
+     			$("#address").text("현재 위치를 설정해주세요 ⬇");
+     		}    		 
+    	 }
+    }
     
 	function tts(){
 		window.webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({
