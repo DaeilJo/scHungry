@@ -1,5 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +14,7 @@
     <script type="text/javascript" src="js/host.js"></script>
  <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <body>
-    <div class="wrap">
+ <div class="wrap">
         <div class="login">
             <h2>Log-in</h2>
             <div class="login_sns">
@@ -38,73 +40,72 @@
         </div>
     </div>
 </body>
-</html>
 <script>
-	$('#emailId').val("");
-	$('#password').val("");
-	
-	function signUp(){
-		 location.href = "/signUp";
+$('#emailId').val("");
+$('#password').val("");
+
+function signUp(){
+	 location.href = "/signUp";
+}
+
+function goIndex(){
+	window.history.back();
+}
+
+function submit(){
+	var emailId  = $('#emailId').val();
+	var password = $('#password').val();
+	if($.trim($('#emailId').val()) == '') {
+   		 alert("아이디를 입력해주세요.");
+   		 return false;
 	}
-	
-	function goIndex(){
-		 location.href = "/";
+
+	if($.trim($('#password').val()) == '') {
+   		 alert("비밀번호를 입력해주세요.");
+   		 return false;
 	}
-	
-	function submit(){
-		var emailId  = $('#emailId').val();
-		var password = $('#password').val();
-		if($.trim($('#emailId').val()) == '') {
-       		 alert("아이디를 입력해주세요.");
-       		 return false;
-    	}
-    
-    	if($.trim($('#password').val()) == '') {
-       		 alert("비밀번호를 입력해주세요.");
-       		 return false;
-    	}
- 
- 		if(emailId.search(/\s/) != -1) { 
-     	   alert("아이디에는 공백이 들어갈 수 없습니다.");
-     	   $('#emailId').val("");        
-    	} else {             
-    	     if(emailId.trim().length != 0) {
-    	        $.ajax({
-    	            async : true, 
-    	            type : 'POST', 
-    	            data: emailId,
-    	            url: "/emailLogin",
-    	            dataType: "json",
-    	            contentType: "application/json; charset=UTF-8",
-    	            success: function(data) {    
-    	                if(data.length == 0){
-							alert("존재하지 않는 아이디입니다.");
-							$('#emailId').val("");
-							$('#password').val("");
-							return;
-						}
-						if(password != data[0].password){
-							alert("패스워드가 다릅니다.");
-							$('#password').val("");
-							return;
-						}
-						 location.href = "/main";
-						
-    	            },
-    	            error: function(error) {
-    	                alert("아이디를 입력해주세요.");
-    	                $('#emailId').val("");
-    	                return;
-    	            }        
-    	        });
-        	} else {
-           	 	alert("아이디를 입력해주세요.");
-           	 	$('#emailId').val("");
-           	 	return;
-        	}   
-    	}
+
+		if(emailId.search(/\s/) != -1) { 
+ 	   alert("아이디에는 공백이 들어갈 수 없습니다.");
+ 	   $('#emailId').val("");        
+	} else {             
+	     if(emailId.trim().length != 0) {
+	        $.ajax({
+	            async : true, 
+	            type : 'POST', 
+	            data: emailId,
+	            url: "/emailLogin",
+	            dataType: "json",
+	            contentType: "application/json; charset=UTF-8",
+	            success: function(data) {    
+	                if(data.length == 0){
+						alert("존재하지 않는 아이디입니다.");
+						$('#emailId').val("");
+						$('#password').val("");
+						return;
+					}
+					if(password != data[0].password){
+						alert("패스워드가 다릅니다.");
+						$('#password').val("");
+						return;
+					}
+					 location.href = "/main";
+					 sessionStorage.setItem('loginYn','Y');
+					
+	            },
+	            error: function(error) {
+	                alert("아이디를 입력해주세요.");
+	                $('#emailId').val("");
+	                return;
+	            }        
+	        });
+    	} else {
+       	 	alert("아이디를 입력해주세요.");
+       	 	$('#emailId').val("");
+       	 	return;
+    	}   
 	}
-	
+}
 </script>
 <style>
 * {
@@ -157,8 +158,8 @@ h2 {
 }
 
 .login_sns a {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -175,7 +176,7 @@ h2 {
 }
 
 .login_id input {
-  width: 100%;
+  width: 90%;
   height: 50px;
   border-radius: 30px;
   margin-top: 10px;
@@ -190,7 +191,7 @@ h2 {
 }
 
 .login_pw input {
-  width: 100%;
+  width: 90%;
   height: 50px;
   border-radius: 30px;
   margin-top: 10px;
@@ -235,6 +236,7 @@ h2 {
   font-size: 1.2em;
   letter-spacing: 2px;
 }
-	
 </style>
 
+
+</html>

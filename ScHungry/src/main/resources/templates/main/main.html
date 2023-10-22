@@ -1,35 +1,107 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./login.css">
+     <link rel="icon" href="images/fevicon.png" type="image/png" />
+  <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">   
 </head>
  <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
      <script type="text/javascript" src="js/cordova.js"></script>
     <script type="text/javascript" src="js/host.js"></script>
-    
+   
+   <script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="js/custom.js"></script> 
 <body>
-    <div class="wrap">
-   		 <header>
-   		  <div class="container"><p><a id="address" href="javascript:void(0);" onclick='insertJuso()' > 현재 위치를 설정해주세요 ⬇</a></p></div>
-   		 	
-  		  </header>
-        <div class="login">
+<div class="super_container">
+
+	<!-- Header -->
+
+	<header class="header trans_300">
+		<!-- Main Navigation -->
+
+			<div class="">
+				<div class="row">
+					<div class="col-lg-12 text-right">
+						<div class="logo_container"style ="left:30px; ">
+							<a><img src="images/icon-36.png"/></a>
+						</div>
+						<nav class="navbar">
+							<ul class="navbar_user">
+								<li><p id="address" onclick='insertJuso()' style="color:black;"> 현재 위치를 설정해주세요 ⬇</p></li>
+							</ul>
+							<ul class="navbar_user">
+								<li><a href="javascript:void(0);" onclick="login()"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+								<li class="checkout">
+									<a href="#">
+										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+										<!--<span id="checkout_items" class="checkout_items">2</span>-->
+									</a>
+								</li>
+							</ul>
+							<!--<div class="hamburger_container">
+								<i class="fa fa-bars" aria-hidden="true"></i>
+							</div>-->
+						</nav>
+					</div>
+				</div>
+			</div>
+
+	</header>
+	<div class="benefit">
+		<div class="container">
+			<div class="login">
             <h2>MENU</h2>
             <div class="login_sns">	
-			<li><a id="tts" href="#value" onclick='tts()'> TT </a></li>
-            <li><a id="stt" href="assets/ch.png" onclick='stt()'></i></a></li>
+			<li><a id="chicken" href="javascript:void(0);" onclick='moveDetail()'><img src = "images/chicken.png"/></a></li>
+            <li><a id="pizza" href="javascript:void(0);" onclick='moveDetail()'><img src = "images/pizza.png"/></a></li>
             <li><a href="javascript:void(0);" onclick='map()'> S</i></a></li>
             <li><a href="javascript:void(0);" onclick='juso()'> T</a></li>
             </div>
-           
+           <div class="login_sns">	
+			<li>치킨</li>
+            <li>피자</li>
+            <li>돈까스</li>
+            <li>마라탕</li>
+            </div>
         </div>
-    </div>
+		</div>
+	</div>
+	<footer class="footer">
+		<div class="container">
+				<div class="row">
+				<div class="col-lg-12">
+					<div class="footer_nav_container">
+						
+					</div>
+				</div>
+				</div>
+		</div>
+	</footer>		
+	<div class="row benefit_row">
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<img src="images/sc.png"/>
+						<div class="benefit_content">
+							<a href="javascript:void(0);" onclick="goSc()">SC제일은행으로 이동</a>
+						</div>
+					</div>
+				</div>
+	</div>
 </body>
 
 <script>
@@ -43,67 +115,22 @@
     init();
     
     function init(){
-    	$.ajax({
-            async : true, 
-            type : "POST", 
-            url: "/getMac",
-            dataType: "json",
-            contentType: "application/json; charset=UTF-8",
-            success: function(data) {    
-            	macAddress = data;     
-            	localStorage.setItem('macAddress', macAddress);
-            },
-            error: function(error) {
-                
-            }        
-         });
-    	
-    	 if(macAddress != null){
-    		 $.ajax({
-    	            async : true, 
-    	            type : "POST", 
-    	            data : macAddress,
-    	            url: "/getMacUserInfo",
-    	            dataType: "json",
-    	            contentType: "application/json; charset=UTF-8",
-    	            success: function(data) {    
-    	            	userMacInfo = data;      
-    	            },
-    	            error: function(error) {
-    	                
-    	            }        
-    	         }); 
-    	 }
-    	 
-    	 if(userMacInfo != ""){
-    		 
-    		 
-    	 }else{
-    		 if(address != "" && address != null){
-     			$("#address").text(address+"⬇");
-     	 	}else{
-     			$("#address").text("현재 위치를 설정해주세요 ⬇");
-     		}    		 
-    	 }
+    	 if(address != "" && address != null){
+				if(17 < address.legnth){
+					address = address.substr(0,17);
+				}    			 
+  			$("#address").text(address+"...");
+  	 	}else{
+  			$("#address").text("현재 위치를 설정해주세요 ⬇");
+  		} 
     }
-    
-	function tts(){
-		window.webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({
-            "action" : "tts_call",
-            "txt_data" :  $("#tts").val()
-        }));
-       
-        //localStorage.setItem('tts','Y');
-        
+   
+	function moveDetail(){
+		
 	}
-	function stt(){
-		//window.webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({
-         //   "action" : "stt_call",
-         //   "txt_data" :  $("#stt").val()
-        //}));
-       
-        localStorage.setItem('tts','Y');
-        
+    
+	function goSc(){
+		window.open("https://m.sc.co.kr");
 	}
 	
 	function insertJuso(){
@@ -120,6 +147,16 @@
 	
 	function juso(){
 		location.href = "/juso";
+	}
+	
+	function login(){
+		var loginYn = sessionStorage.getItem('loginYn');	
+		if(loginYn == "Y"){
+			location.href = "/myPage";	
+		}else{
+			location.href = "/login";
+		}
+	    
 	}
 	
 	function submit(){
@@ -175,6 +212,26 @@
         	}   
     	}
 	}
+	
+	 /*
+	function tts(){
+		window.webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({
+            "action" : "tts_call",
+            "txt_data" :  $("#tts").val()
+        }));
+       
+        //sessionStorage.setItem('tts','Y');
+        
+	}
+	function stt(){
+		//window.webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({
+         //   "action" : "stt_call",
+         //   "txt_data" :  $("#stt").val()
+        //}));
+       
+        sessionStorage.setItem('tts','Y');
+        
+	}*/
 	
 </script>
 <style>
@@ -244,7 +301,7 @@ h2 {
   font-size: 2em;
 }
 .login_sns {
-  padding: 20px;
+  padding: 6px;
   display: flex;
 }
 
