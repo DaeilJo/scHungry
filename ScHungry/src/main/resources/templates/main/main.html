@@ -46,7 +46,7 @@
 							<ul class="navbar_user">
 								<li><a href="javascript:void(0);" onclick="myPage()"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 								<li class="checkout">
-									<a href="#">
+									<a href="javascript:void(0);" onclick="wishList()" >
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 										<!--<span id="checkout_items" class="checkout_items">2</span>-->
 									</a>
@@ -147,6 +147,9 @@
 	function juso(){
 		location.href = "/juso";
 	}
+	function wishList(){
+		location.href = "/wishList";
+	}
 	
 	function myPage(){
 		var loginYn = sessionStorage.getItem('loginYn');	
@@ -236,6 +239,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap');
 .container {
+	right: 6px;
   font-family: arial;
   font-size: 17px;
   margin: 25px;

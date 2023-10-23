@@ -1,10 +1,401 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="icon" href="images/fevicon.png" type="image/png" />
+  <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">   
+</head>
+ <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script type="text/javascript" src="js/cordova.js"></script>
+    <script type="text/javascript" src="js/host.js"></script>
+   
+   <script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="js/custom.js"></script> 
+<body>
+<div class="super_container">
+
+	<!-- Header -->
+
+	<header class="header trans_300">
+		<!-- Main Navigation -->
+
+			<div class="">
+				<div class="row">
+					<div class="col-lg-12 text-right">
+						<div class="logo_container"style ="left:30px; ">
+							<a><img src="images/icon-36.png"/></a>
+						</div>
+						<nav class="navbar">
+							<ul class="navbar_user">
+								<li><p id="address" onclick='insertJuso()' style="color:black;"> 현재 위치를 설정해주세요 ⬇</p></li>
+							</ul>
+							<ul class="navbar_user">
+								<li><a href="javascript:void(0);" onclick="login()"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+								<li class="checkout">
+									<a href="#">
+										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+										<!--<span id="checkout_items" class="checkout_items">2</span>-->
+									</a>
+								</li>
+							</ul>
+							<!--<div class="hamburger_container">
+								<i class="fa fa-bars" aria-hidden="true"></i>
+							</div>-->
+						</nav>
+					</div>
+				</div>
+			</div>
+
+	</header>
+	<div class="benefit">
+		<div class="container">
+			<div class="login">
+            <h2>장바구니</h2>
+        </div>
+		</div>
+	</div>
+	<div class="newsletter">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<form action="post">
+						<div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
+							<input id="newsletter_email" type="email" placeholder="검색어를 입력해주세요." required="required" data-error="Valid email is required.">
+							<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">검색</button>
+						</div>
+					</form>
+				</div>
+				<div class="col-lg-6">
+					<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+						<p>현재 주문내역이 없습니다.</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<footer class="footer">
+		<div class="container">
+				<div class="row">
+				<div class="col-lg-12">
+					<div class="footer_nav_container">
+						
+					</div>
+				</div>
+				</div>
+		</div>
+	</footer>		
+	<div class="row benefit_row">
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<img src="images/sc.png"/>
+						<div class="benefit_content">
+							<a href="javascript:void(0);" onclick="goSc()">SC제일은행으로 이동</a>
+						</div>
+					</div>
+				</div>
+	</div>
 </body>
+
+<script>
+	  //let contentController = WKUserContentController()
+      //let config = WKWebViewConfiguration() 
+    var postcode =   localStorage.getItem('postcode');
+    var address =   localStorage.getItem('address');
+    var detailAddress =   localStorage.getItem('detailAddress');	
+    var macAddress = "";
+    var userMacInfo = "";
+    init();
+    
+    function init(){
+    	 if(address != "" && address != null){
+				if(17 < address.legnth){
+					address = address.substr(0,17);
+				}    			 
+  			$("#address").text(address+"...");
+  	 	}else{
+  			$("#address").text("현재 위치를 설정해주세요 ⬇");
+  		} 
+    }
+   
+	function moveDetail(){
+		
+	}
+    
+	function goSc(){
+		window.open("https://m.sc.co.kr");
+	}
+	
+	function insertJuso(){
+		location.href = "/juso";
+	}
+	
+	function map(){
+		location.href = "/map";
+	}
+	
+	function signUp(){
+		 location.href = "/signUp";
+	}
+	
+	function juso(){
+		location.href = "/juso";
+	}
+	
+	function login(){
+		var loginYn = sessionStorage.getItem('loginYn');	
+		if(loginYn == "Y"){
+			location.href = "/myPage";	
+		}else{
+			location.href = "/login";
+		}
+	    
+	}
+	
+	function submit(){
+		var emailId  = $('#emailId').val();
+		var password = $('#password').val();
+		if($.trim($('#emailId').val()) == '') {
+       		 alert("아이디를 입력해주세요.");
+       		 return false;
+    	}
+    
+    	if($.trim($('#password').val()) == '') {
+       		 alert("비밀번호를 입력해주세요.");
+       		 return false;
+    	}
+ 
+ 		if(emailId.search(/\s/) != -1) { 
+     	   alert("아이디에는 공백이 들어갈 수 없습니다.");
+     	   $('#emailId').val("");        
+    	} else {             
+    	     if(emailId.trim().length != 0) {
+    	        $.ajax({
+    	            async : true, 
+    	            type : 'POST', 
+    	            data: emailId,
+    	            url: "/emailLogin",
+    	            dataType: "json",
+    	            contentType: "application/json; charset=UTF-8",
+    	            success: function(data) {    
+    	                if(data.length == 0){
+							alert("존재하지 않는 아이디입니다.");
+							$('#emailId').val("");
+							$('#password').val("");
+							return;
+						}
+						if(password != data[0].password){
+							alert("패스워드가 다릅니다.");
+							$('#password').val("");
+							return;
+						}
+						 location.href = "/main";
+						
+    	            },
+    	            error: function(error) {
+    	                alert("아이디를 입력해주세요.");
+    	                $('#emailId').val("");
+    	                return;
+    	            }        
+    	        });
+        	} else {
+           	 	alert("아이디를 입력해주세요.");
+           	 	$('#emailId').val("");
+           	 	return;
+        	}   
+    	}
+	}
+	
+	 /*
+	function tts(){
+		window.webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({
+            "action" : "tts_call",
+            "txt_data" :  $("#tts").val()
+        }));
+       
+        //sessionStorage.setItem('tts','Y');
+        
+	}
+	function stt(){
+		//window.webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify({
+         //   "action" : "stt_call",
+         //   "txt_data" :  $("#stt").val()
+        //}));
+       
+        sessionStorage.setItem('tts','Y');
+        
+	}*/
+	
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap');
+.container {
+  font-family: arial;
+  font-size: 17px;
+  margin: 25px;
+  width: 350px;
+  height: 200px;
+  font-family: 'Nanum Brush Script', cursive;
+}
+
+
+p {
+  /* 수평 중앙 정렬하기 */
+  text-align: center;
+}
+header{
+    position: fixed;
+    left: 0;
+    right: auto;
+    top: 0;
+    height: 4rem;
+    background: white;
+    line-height: 4rem;
+    text-align: center;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style: none;
+}
+
+.wrap {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.login {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h2 {
+  color: #1abc9c;
+  font-size: 2em;
+}
+.login_sns {
+  padding: 6px;
+  display: flex;
+}
+
+.login_sns li {
+  padding: 0px 15px;
+}
+
+.login_sns a {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50px;
+  background: white;
+  font-size: 20px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4), -3px -3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login_id {
+  margin-top: 20px;
+  width: 80%;
+}
+
+.login_id input {
+  width: 100%;
+  height: 50px;
+  border-radius: 30px;
+  margin-top: 10px;
+  padding: 0px 20px;
+  border: 1px solid lightgray;
+  outline: none;
+}
+
+.login_pw {
+  margin-top: 20px;
+  width: 80%;
+}
+
+.login_pw input {
+  width: 100%;
+  height: 50px;
+  border-radius: 30px;
+  margin-top: 10px;
+  padding: 0px 20px;
+  border: 1px solid lightgray;
+  outline: none;
+}
+
+.login_etc {
+  padding: 10px;
+  width: 80%;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.submit {
+  margin-top: 50px;
+  width: 80%;
+}
+.submit a {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.submit input {
+  width: 100%;
+  height: 50px;
+  border: 0;
+  outline: none;
+  border-radius: 40px;
+  background:  #1abc9c;
+  color: white;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+}
+	
+</style>
 </html>
