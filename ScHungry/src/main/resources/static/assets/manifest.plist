@@ -11,7 +11,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>http://sc-hungry.co.kr:8080/assets</string>
+					<string>http://sc-hungry.co.kr:8080/assets/꼬르륵.ipa</string>
 				</dict>
 				<dict>
 					<key>kind</key>
@@ -47,7 +47,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://sc-hungry.co.kr:8080/assets-25EA62DF-6141-46F5-A6F6-DA24E6D764DE</string>
+					<string>http://sc-hungry.co.kr:8080/assets-25EA62DF-6141-46F5-A6F6-DA24E6D764DE</string>
 					<key>variantDescriptors</key>
 					<array>
 						<dict>
@@ -565,7 +565,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://sc-hungry.co.kr:8080/assets-67100E7E-2C83-4301-B27A-FA9FFB22E58E</string>
+					<string>http://sc-hungry.co.kr:8080/assets-67100E7E-2C83-4301-B27A-FA9FFB22E58E</string>
 					<key>variantDescriptors</key>
 					<array/>
 					<key>variantIds</key>
@@ -584,7 +584,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://sc-hungry.co.kr:8080/assets-303752BA-79CD-4338-9C04-C5BAB99FCE27</string>
+					<string>http://sc-hungry.co.kr:8080/assets-303752BA-79CD-4338-9C04-C5BAB99FCE27</string>
 					<key>variantDescriptors</key>
 					<array>
 						<dict>
@@ -621,7 +621,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://sc-hungry.co.kr:8080/assets-2D924EFD-52AE-4E8E-863A-6C910CACAAEE</string>
+					<string>http://sc-hungry.co.kr:8080/assets-2D924EFD-52AE-4E8E-863A-6C910CACAAEE</string>
 					<key>variantDescriptors</key>
 					<array>
 						<dict>
@@ -658,7 +658,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://sc-hungry.co.kr:8080/assets-66066EDF-A159-4231-9D68-69E6D39CD17F</string>
+					<string>http://sc-hungry.co.kr:8080/assets-66066EDF-A159-4231-9D68-69E6D39CD17F</string>
 					<key>variantDescriptors</key>
 					<array/>
 					<key>variantIds</key>
@@ -677,7 +677,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://sc-hungry.co.kr:8080/assets-60BA4232-4669-4FF1-944A-0297D6FFE7FB</string>
+					<string>http://sc-hungry.co.kr:8080/assets-60BA4232-4669-4FF1-944A-0297D6FFE7FB</string>
 					<key>variantDescriptors</key>
 					<array/>
 					<key>variantIds</key>
@@ -696,7 +696,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://sc-hungry.co.kr:8080/assets-B9B16F11-D69A-40E1-955A-70A0B0E9607C</string>
+					<string>http://sc-hungry.co.kr:8080/assets-B9B16F11-D69A-40E1-955A-70A0B0E9607C</string>
 					<key>variantDescriptors</key>
 					<array/>
 					<key>variantIds</key>
@@ -711,7 +711,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://sc-hungry.co.kr:8080/assets-DA854DD8-05A2-477D-9148-FAAEFD72B71B</string>
+					<string>http://sc-hungry.co.kr:8080/assets-DA854DD8-05A2-477D-9148-FAAEFD72B71B</string>
 					<key>variantDescriptors</key>
 					<array>
 						<dict>
@@ -804,7 +804,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://sc-hungry.co.kr:8080/assets-92342183-2552-4794-9E7F-57460CD5E1FF</string>
+					<string>http://sc-hungry.co.kr:8080/assets-92342183-2552-4794-9E7F-57460CD5E1FF</string>
 					<key>variantDescriptors</key>
 					<array>
 						<dict>
@@ -1066,7 +1066,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://sc-hungry.co.kr:8080/assets-3C64E858-9EBC-4327-A216-0F93B62028A8</string>
+					<string>http://sc-hungry.co.kr:8080/assets-3C64E858-9EBC-4327-A216-0F93B62028A8</string>
 					<key>variantDescriptors</key>
 					<array>
 						<dict>
@@ -1191,7 +1191,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://sc-hungry.co.kr:8080/assets-4E87EF6D-0280-4F74-8E94-0D11C7EF7F25</string>
+					<string>http://sc-hungry.co.kr:8080/assets-4E87EF6D-0280-4F74-8E94-0D11C7EF7F25</string>
 					<key>variantDescriptors</key>
 					<array/>
 					<key>variantIds</key>
