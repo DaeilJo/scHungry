@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
  <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
      <script type="text/javascript" src="js/cordova.js"></script>
     <script type="text/javascript" src="js/host.js"></script>
+</head>
 <body>
 <form method="post" action="/createScUser">
 <div class="wrap">
@@ -28,11 +30,11 @@
             </div>
             <div class="login_pw">
                 <h4>닉네임</h4>
-                <input type="nickName" name="nickName" id="nickName" placeholder="Name">
+                <input type="email" name="nickName" id="nickName" placeholder="Name">
             </div>
              <div class="login_pw">
                 <h4>휴대폰 번호</h4>
-                <input type="phoneNumber" name="phoneNumber" id="phoneNumber" placeholder="Phone Number">
+                <input type="email" name="phoneNumber" id="phoneNumber" placeholder="Phone Number">
             </div>
             <input type="hidden" name="idDvcd" value = "00001">
             <div class="submit">
@@ -40,10 +42,9 @@
             </div>
             </div>
         </div>
-    </div>
+ 
    </form>
-</html>
-
+</body>
 <script>
 	function goBack() {
 		window.history.back();
@@ -228,3 +229,4 @@ h2 {
   letter-spacing: 2px;
 }
 </style>
+</html>

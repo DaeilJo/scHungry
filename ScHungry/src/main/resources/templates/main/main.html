@@ -37,9 +37,9 @@
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container"style ="left:30px; ">
-							<a><img src="images/icon-36.png"/></a>
+							<a href="javascript:void(0);" onclick="main()"><img src="images/icon-36.png"/></a>
 						</div>
-						<nav class="navbar">
+						<nav class="navbar" style = "right:30px">
 							<ul class="navbar_user">
 								<li><p id="address" onclick='insertJuso()' style="color:black;"> 현재 위치를 설정해주세요 ⬇</p></li>
 							</ul>
@@ -66,16 +66,16 @@
 			<div class="login">
             <h2>MENU</h2>
             <div class="login_sns">	
-			<li><a id="chicken" href="javascript:void(0);" onclick='moveDetail()'><img src = "images/chicken.png"/></a></li>
-            <li><a id="pizza" href="javascript:void(0);" onclick='moveDetail()'><img src = "images/pizza.png"/></a></li>
-            <li><a id="sushi" href="javascript:void(0);" onclick='moveDetail()'><img src = "images/sushi.png"/></a></li>
-            <li><a id="coffee" href="javascript:void(0);" onclick='moveDetail()'><img src = "images/coffee.png"/></a></li>
+			<li><a id="chicken" href="javascript:void(0);" onclick='moveDetail2()'><img src = "images/chicken.png"/></a></li>
+            <li><a id="pizza" href="javascript:void(0);" onclick='moveDetail3()'><img src = "images/pizza.png"/></a></li>
+            <li><a id="sushi" href="javascript:void(0);" onclick='moveDetail4()'><img src = "images/sushi.png"/></a></li>
+            <li><a id="coffee" href="javascript:void(0);" onclick='moveDetail5()'><img src = "images/coffee.png"/></a></li>
             </div>
            <div class="login_sns">	
 			<li>치킨</li>
             <li>피자/양식</li>
             <li>회/초밥</li>
-            <li>커피</li>
+            <li>카페</li>
             </div>
         </div>
 		</div>
@@ -111,6 +111,7 @@
     var detailAddress =   localStorage.getItem('detailAddress');	
     var macAddress = "";
     var userMacInfo = "";
+    var menuNm = "";
     init();
     
     function init(){
@@ -124,8 +125,8 @@
   		} 
     }
    
-	function moveDetail(){
-		
+    function main(){
+		location.href = "/main";
 	}
     
 	function goSc(){
@@ -159,6 +160,27 @@
 			location.href = "/login";
 		}
 	    
+	}
+	
+	function moveDetail2(){
+		if(address != "" && address != null){
+			location.href = "/menu";	
+		}else{
+			alert("현재 위치를 설정해 주세요.");			
+		}
+		
+	}
+	
+	function moveDetail3(){
+		alert("서비스 준비중입니다.");
+	}
+	
+	function moveDetail4(){
+		alert("서비스 준비중입니다.");
+	}
+	
+	function moveDetail5(){
+		alert("서비스 준비중입니다.");
 	}
 	
 	function submit(){

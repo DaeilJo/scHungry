@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +37,7 @@
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container"style ="left:30px; ">
-							<a><img src="images/icon-36.png"/></a>
+							<a href="javascript:void(0);" onclick="main()"><img src="images/icon-36.png"/></a>
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_user">
@@ -66,50 +65,15 @@
 		<div class="container">
 			<div class="login">
             <h2>장바구니</h2>
+            <div class="col-lg-6">
+					<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+						<p id = "menuYn">현재 담긴 메뉴가 없습니다.</p>
+					</div>
+				</div>
         </div>
 		</div>
 	</div>
-	<div class="newsletter">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<form action="post">
-						<div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
-							<input id="newsletter_email" type="email" placeholder="검색어를 입력해주세요." required="required" data-error="Valid email is required.">
-							<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">검색</button>
-						</div>
-					</form>
-				</div>
-				<div class="col-lg-6">
-					<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
-						<p>현재 주문내역이 없습니다.</p>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-	</div>
-	<footer class="footer">
-		<div class="container">
-				<div class="row">
-				<div class="col-lg-12">
-					<div class="footer_nav_container">
-						
-					</div>
-				</div>
-				</div>
-		</div>
-	</footer>		
-	<div class="row benefit_row">
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<img src="images/sc.png"/>
-						<div class="benefit_content">
-							<a href="javascript:void(0);" onclick="goSc()">SC제일은행으로 이동</a>
-						</div>
-					</div>
-				</div>
-	</div>
+	
 </body>
 
 <script>
@@ -136,7 +100,10 @@
 	function moveDetail(){
 		
 	}
-    
+	function main(){
+		location.href = "/main";
+	}
+	
 	function goSc(){
 		window.open("https://m.sc.co.kr");
 	}
@@ -245,6 +212,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap');
 .container {
+  right: 10px;
   font-family: arial;
   font-size: 17px;
   margin: 25px;

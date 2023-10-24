@@ -39,14 +39,14 @@
 						<div class="logo_container"style ="left:30px; ">
 							<a href="javascript:void(0);" onclick="main()"><img src="images/icon-36.png"/></a>
 						</div>
-						<nav class="navbar">
+						<nav class="navbar" style = "right:30px">
 							<ul class="navbar_user">
 								<li><p id="address" onclick='insertJuso()' style="color:black;"> 현재 위치를 설정해주세요 ⬇</p></li>
 							</ul>
 							<ul class="navbar_user">
-								<li><a href="javascript:void(0);" onclick="login()"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+								<li><a href="javascript:void(0);" onclick="myPage()"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 								<li class="checkout">
-									<a href="#">
+									<a href="javascript:void(0);" onclick="wishList()" >
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 										<!--<span id="checkout_items" class="checkout_items">2</span>-->
 									</a>
@@ -61,19 +61,60 @@
 			</div>
 
 	</header>
-	<div class="benefit">
-		<div class="container">
-			<div class="login">
-            <h2>마이페이지</h2>
-            <div class="col-lg-6">
-					<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
-						<p id = "menuYn">현재 준비중입니다.</p>
+     <div class="new_arrivals">
+		<div class="row align-items-center">
+				<div class="col text-center">
+					<div class="new_arrivals_sorting">
+						<ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
+							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" onclick="selMenu1()" data-filter=".chicken" data-name="menu" value = "chicken">치킨</li>
+							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" onclick="selMenu2()" data-filter=".pizza" data-name="menu" value = "pizza">피자/양식</li>
+							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" onclick="selMenu3()" data-filter=".sushi" data-name="menu" value = "sushi">회/초밥</li>
+							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" onclick="selMenu4()" data-filter=".coffee" data-name="menu" value = "coffee">카페</li>
+						</ul>
 					</div>
 				</div>
-        </div>
-		</div>
+			</div>
+		<div class="container">
+		<div class="row benefit_row">
+				<div class="col-lg-3 benefit_col" onclick = "bhcOnClick()">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<img src = "images/bhc.png"/>
+						<div class="benefit_content">
+							<h6 id = "bhc">BHC shipping</h6>
+							<p>BHC 상세 메뉴</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col" onclick = "kfcOnClick">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<img src = "images/kfc.png"/>
+						<div class="benefit_content">
+							<h6 id = "kfc">cach on delivery</h6>
+							<p>KFC 상세 메뉴</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col" onclick = "kyochonOnClick">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<img src = "images/kyochon.png"/>
+						<div class="benefit_content">
+							<h6 id = "kyochon">45 days return</h6>
+							<p>교촌 상세 메뉴</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col" onclick = "neneOnClick">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<img src = "images/nene.png"/>
+						<div class="benefit_content">
+							<h6 id = "nene">opening all week</h6>
+							<p>네네 상세 메뉴</p>
+						</div>
+					</div>
+				</div>
+			</div>
 	</div>
-	
+	</div>
 </body>
 
 <script>
@@ -84,6 +125,19 @@
     var detailAddress =   localStorage.getItem('detailAddress');	
     var macAddress = "";
     var userMacInfo = "";
+    var bhc = "";
+    var kfc = "";
+    var kyochon = "";
+    var nene = "";
+    
+    var str = address;
+    var words = str.split(' ');
+    
+    $("#bhc").text("BHC - "+words[1]+"점");
+    $("#kfc").text("KFC - "+words[1]+"점");
+    $("#kyochon").text("교촌 - "+words[1]+"점");
+    $("#nene").text("네네 - "+words[1]+"점");
+    
     init();
     
     function init(){
@@ -94,37 +148,64 @@
   			$("#address").text(address+"...");
   	 	}else{
   			$("#address").text("현재 위치를 설정해주세요 ⬇");
-  		} 
+  		}
+    	
     }
    
-	function moveDetail(){
-		
-	}
-    
+    function selMenu2(){
+    	if(!alert("서비스 준비중입니다.")) document.location = '/menu';
+    }
+    function selMenu3(){
+    	if(!alert("서비스 준비중입니다.")) document.location = '/menu';
+    }
+    function selMenu4(){
+    	if(!alert("서비스 준비중입니다.")) document.location = '/menu';
+    }
 	function goSc(){
 		window.open("https://m.sc.co.kr");
 	}
-	function main(){
-		location.href = "/main";
+
+	function bhcOnClick(){
+		var menuNm = "bhc";
+		sessionStorage.setItem('bhcStore',$("#bhc").text());
+		sessionStorage.setItem('bhc',menuNm);
+		location.href = "menuInfo";
 	}
 	
-	function insertJuso(){
-		location.href = "/juso";
+	function kfcOnClick(){
+		var menuNm = "kfc";
+		sessionStorage.setItem('kfcStore',$("#kfc").text());
+		sessionStorage.setItem('kfc',menuNm);
+		location.href = "menuInfo";
 	}
 	
-	function map(){
-		location.href = "/map";
+	function kyochonOnClick(){
+		var menuNm = "kyochon";
+		sessionStorage.setItem('kyochonStore',$("#kyochon").text());
+		sessionStorage.setItem('kyochon',menuNm);
+		location.href = "menuInfo";
 	}
 	
-	function signUp(){
-		 location.href = "/signUp";
+	function neneOnClick(){
+		var menuNm = "nene";
+		sessionStorage.setItem('neneStore',$("#nene").text());
+		sessionStorage.setItem('nene',menuNm);
+		location.href = "menuInfo";
 	}
 	
-	function juso(){
-		location.href = "/juso";
-	}
-	
-	function login(){
+	 function main(){
+			location.href = "/main";
+		}
+	    
+		function goSc(){
+			window.open("https://m.sc.co.kr");
+		}
+		
+		function insertJuso(){
+			location.href = "/juso";
+		}
+		
+	function myPage(){
 		var loginYn = sessionStorage.getItem('loginYn');	
 		if(loginYn == "Y"){
 			location.href = "/myPage";	
@@ -133,60 +214,7 @@
 		}
 	    
 	}
-	
-	function submit(){
-		var emailId  = $('#emailId').val();
-		var password = $('#password').val();
-		if($.trim($('#emailId').val()) == '') {
-       		 alert("아이디를 입력해주세요.");
-       		 return false;
-    	}
-    
-    	if($.trim($('#password').val()) == '') {
-       		 alert("비밀번호를 입력해주세요.");
-       		 return false;
-    	}
- 
- 		if(emailId.search(/\s/) != -1) { 
-     	   alert("아이디에는 공백이 들어갈 수 없습니다.");
-     	   $('#emailId').val("");        
-    	} else {             
-    	     if(emailId.trim().length != 0) {
-    	        $.ajax({
-    	            async : true, 
-    	            type : 'POST', 
-    	            data: emailId,
-    	            url: "/emailLogin",
-    	            dataType: "json",
-    	            contentType: "application/json; charset=UTF-8",
-    	            success: function(data) {    
-    	                if(data.length == 0){
-							alert("존재하지 않는 아이디입니다.");
-							$('#emailId').val("");
-							$('#password').val("");
-							return;
-						}
-						if(password != data[0].password){
-							alert("패스워드가 다릅니다.");
-							$('#password').val("");
-							return;
-						}
-						 location.href = "/main";
-						
-    	            },
-    	            error: function(error) {
-    	                alert("아이디를 입력해주세요.");
-    	                $('#emailId').val("");
-    	                return;
-    	            }        
-    	        });
-        	} else {
-           	 	alert("아이디를 입력해주세요.");
-           	 	$('#emailId').val("");
-           	 	return;
-        	}   
-    	}
-	}
+
 	
 	 /*
 	function tts(){
@@ -217,7 +245,7 @@
   font-size: 17px;
   margin: 25px;
   width: 350px;
-  height: 200px;
+  height: 500px;
   font-family: 'Nanum Brush Script', cursive;
 }
 

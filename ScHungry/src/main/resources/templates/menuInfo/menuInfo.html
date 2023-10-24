@@ -39,14 +39,14 @@
 						<div class="logo_container"style ="left:30px; ">
 							<a href="javascript:void(0);" onclick="main()"><img src="images/icon-36.png"/></a>
 						</div>
-						<nav class="navbar">
+						<nav class="navbar" style = "right:30px">
 							<ul class="navbar_user">
-								<li><p id="address" onclick='insertJuso()' style="color:black;"> 현재 위치를 설정해주세요 ⬇</p></li>
+								<li><p id="address"  style="color:black;"> 현재 위치를 설정해주세요 ⬇</p></li>
 							</ul>
 							<ul class="navbar_user">
-								<li><a href="javascript:void(0);" onclick="login()"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+								<li><a href="javascript:void(0);" onclick="myPage()"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 								<li class="checkout">
-									<a href="#">
+									<a href="javascript:void(0);" onclick="wishList()" >
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 										<!--<span id="checkout_items" class="checkout_items">2</span>-->
 									</a>
@@ -61,19 +61,56 @@
 			</div>
 
 	</header>
-	<div class="benefit">
+     <div class="new_arrivals">
+			
 		<div class="container">
-			<div class="login">
-            <h2>마이페이지</h2>
-            <div class="col-lg-6">
-					<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
-						<p id = "menuYn">현재 준비중입니다.</p>
+		<div class="row">
+				<div class="col text-center">
+					<div class="section_title new_arrivals_title">
+						<h5>Chicken Menu</h5>
 					</div>
 				</div>
-        </div>
-		</div>
+			</div>
+		<div class="row benefit_row">
+				<div class="col-lg-3 benefit_col" onclick = "bhcOnClick()">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<img src = "images/bhc.png"/>
+						<div class="benefit_content">
+							<h6 id = "bhc">BHC shipping</h6>
+							<p>BHC 상세 메뉴</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col" onclick = "kfcOnClick">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<img src = "images/kfc.png"/>
+						<div class="benefit_content">
+							<h6 id = "kfc">cach on delivery</h6>
+							<p>KFC 상세 메뉴</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col" onclick = "kyochonOnClick">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<img src = "images/kyochon.png"/>
+						<div class="benefit_content">
+							<h6 id = "kyochon">45 days return</h6>
+							<p>교촌 상세 메뉴</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col" onclick = "neneOnClick">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<img src = "images/nene.png"/>
+						<div class="benefit_content">
+							<h6 id = "nene">opening all week</h6>
+							<p>네네 상세 메뉴</p>
+						</div>
+					</div>
+				</div>
+			</div>
 	</div>
-	
+	</div>
 </body>
 
 <script>
@@ -82,49 +119,78 @@
     var postcode =   localStorage.getItem('postcode');
     var address =   localStorage.getItem('address');
     var detailAddress =   localStorage.getItem('detailAddress');	
-    var macAddress = "";
-    var userMacInfo = "";
+    
+    var bhc = sessionStorage.getItem('bhc');
+    var kfc = sessionStorage.getItem('kfc');
+    var kyochon = sessionStorage.getItem('kyochon');
+    var nene = sessionStorage.getItem('nene');
+    
+    
     init();
     
     function init(){
-    	 if(address != "" && address != null){
-				if(17 < address.legnth){
-					address = address.substr(0,17);
-				}    			 
-  			$("#address").text(address+"...");
-  	 	}else{
-  			$("#address").text("현재 위치를 설정해주세요 ⬇");
-  		} 
+    	if(bhc!= "" && bhc!= null){
+    		$("#address").text(sessionStorage.getItem('bhcStore'));    		
+    	}else if(kfc!= "" && kfc!= null){
+    		$("#address").text(sessionStorage.getItem('kfcStore'));    		
+    	}else if(kyochon!= "" && kyochon!= null){
+    		$("#address").text(sessionStorage.getItem('kyochonStore'));    		
+    	}else if(nene!= "" && nene!= null){
+    		$("#address").text(sessionStorage.getItem('nenetore'));    		
+    	}
     }
    
-	function moveDetail(){
-		
-	}
-    
+    function selMenu2(){
+    	if(!alert("서비스 준비중입니다.")) document.location = '/menu';
+    }
+    function selMenu3(){
+    	if(!alert("서비스 준비중입니다.")) document.location = '/menu';
+    }
+    function selMenu4(){
+    	if(!alert("서비스 준비중입니다.")) document.location = '/menu';
+    }
 	function goSc(){
 		window.open("https://m.sc.co.kr");
 	}
-	function main(){
-		location.href = "/main";
+
+	 function main(){
+			location.href = "/main";
+		}
+	    
+		function goSc(){
+			window.open("https://m.sc.co.kr");
+		}
+		
+		function insertJuso(){
+			location.href = "/juso";
+		}
+	
+	function bhcOnClick(){
+		var menuNm = "bhc";
+		sessionStorage.getItem('bhc',menuNm);
+		location.href = "menuInfo";
 	}
 	
-	function insertJuso(){
-		location.href = "/juso";
+	function kfcOnClick(){
+		var menuNm = "kfc";
+		sessionStorage.getItem('kfc',menuNm);
+		location.href = "menuInfo";
 	}
 	
-	function map(){
-		location.href = "/map";
+	function kyochonOnClick(){
+		var menuNm = "kyochon";
+		sessionStorage.getItem('kyochon',menuNm);
+		location.href = "menuInfo";
 	}
 	
-	function signUp(){
-		 location.href = "/signUp";
+	function neneOnClick(){
+		var menuNm = "nene";
+		sessionStorage.getItem('nene',menuNm);
+		location.href = "menuInfo";
 	}
 	
-	function juso(){
-		location.href = "/juso";
-	}
 	
-	function login(){
+	function myPage(){
 		var loginYn = sessionStorage.getItem('loginYn');	
 		if(loginYn == "Y"){
 			location.href = "/myPage";	
@@ -133,60 +199,7 @@
 		}
 	    
 	}
-	
-	function submit(){
-		var emailId  = $('#emailId').val();
-		var password = $('#password').val();
-		if($.trim($('#emailId').val()) == '') {
-       		 alert("아이디를 입력해주세요.");
-       		 return false;
-    	}
-    
-    	if($.trim($('#password').val()) == '') {
-       		 alert("비밀번호를 입력해주세요.");
-       		 return false;
-    	}
- 
- 		if(emailId.search(/\s/) != -1) { 
-     	   alert("아이디에는 공백이 들어갈 수 없습니다.");
-     	   $('#emailId').val("");        
-    	} else {             
-    	     if(emailId.trim().length != 0) {
-    	        $.ajax({
-    	            async : true, 
-    	            type : 'POST', 
-    	            data: emailId,
-    	            url: "/emailLogin",
-    	            dataType: "json",
-    	            contentType: "application/json; charset=UTF-8",
-    	            success: function(data) {    
-    	                if(data.length == 0){
-							alert("존재하지 않는 아이디입니다.");
-							$('#emailId').val("");
-							$('#password').val("");
-							return;
-						}
-						if(password != data[0].password){
-							alert("패스워드가 다릅니다.");
-							$('#password').val("");
-							return;
-						}
-						 location.href = "/main";
-						
-    	            },
-    	            error: function(error) {
-    	                alert("아이디를 입력해주세요.");
-    	                $('#emailId').val("");
-    	                return;
-    	            }        
-    	        });
-        	} else {
-           	 	alert("아이디를 입력해주세요.");
-           	 	$('#emailId').val("");
-           	 	return;
-        	}   
-    	}
-	}
+
 	
 	 /*
 	function tts(){
@@ -217,7 +230,7 @@
   font-size: 17px;
   margin: 25px;
   width: 350px;
-  height: 200px;
+  height: 500px;
   font-family: 'Nanum Brush Script', cursive;
 }
 
