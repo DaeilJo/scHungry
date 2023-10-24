@@ -4,10 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
+     <link rel="icon" href="images/fevicon.png" type="image/png" />
+  <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">   
 </head>
+ <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script type="text/javascript" src="js/cordova.js"></script>
+    <script type="text/javascript" src="js/host.js"></script>
+   
+   <script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="js/custom.js"></script> 
 <body>
+	
+	<header class="header trans_300">
+		<!-- Main Navigation -->
+
+			<div class="">
+				<div class="row">
+					<div class="col-lg-12 text-right">
+						<div class="logo_container"style ="left:30px; ">
+							<a href="javascript:void(0);" onclick="main()"><img src="images/icon-36.png"/></a>
+						</div>
+						<nav class="navbar" style = "right:30px">
+							<ul class="navbar_user">
+								<li><p id="address" onclick='insertJuso()' style="color:black;">꼬르륵 앱 다운로드</p></li>
+							</ul>
+							<ul class="navbar_user">
+								<li><a href="javascript:void(0);" onclick="myPage()"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+								<li class="checkout">
+									<a href="javascript:void(0);" onclick="wishList()" >
+										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+										<!--<span id="checkout_items" class="checkout_items">2</span>-->
+									</a>
+								</li>
+							</ul>
+							<!--<div class="hamburger_container">
+								<i class="fa fa-bars" aria-hidden="true"></i>
+							</div>-->
+						</nav>
+					</div>
+				</div>
+			</div>
+
+	</header>
 	<a href="http://sc-hungry.co.kr:8080/assets/app-debug.apk" type="application/vnd.android.package-archive"> Android Down</a>
 	<a href="assets/app-debug.apk" type="application/vnd.android.package-archive"> Android Down2</a>
 	<a href="app-debug.apk" type="application/vnd.android.package-archive"> Ios Down</a>
@@ -15,7 +64,7 @@
 	<br>
 	<a href="itms-services://?action=download-manifest&url=https://dl.dropboxusercontent.com/scl/fi/zvsjm86i305apsyypdjw6/꼬르륵.ipa?rlkey=wdb7w88eledydm5oonmatrrpg">Ios Down2</a>
 	<br>
-	<a href="itms-services://?action=download-manifest&url=https://www.dropbox.com/scl/fi/zvsjm86i305apsyypdjw6/.ipa?rlkey=wdb7w88eledydm5oonmatrrpg&dl=0">Ios Down3</a>
+	<a href="itms-services://?action=download-manifest&url=https://www.dropbox.com/scl/fi/zvsjm86i305apsyypdjw6/.ipa?rlkey=wdb7w88eledydm5oonmatrrpg">Ios Down3</a>
 	<br>
 	<a href="itms-services://?action=download-manifest&url=https://dl.dropboxusercontent.com/scl/fi/zvsjm86i305apsyypdjw6/.ipa?rlkey=wdb7w88eledydm5oonmatrrpg">Ios Down4</a>
 	<br>
